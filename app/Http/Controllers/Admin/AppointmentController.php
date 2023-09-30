@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
@@ -48,7 +48,7 @@ public function store(Request $request, Appointment $appointment)
     public function update(Request $request, $id)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            'fullname' => 'required|string|max:255',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
             'reason' => 'required|string',
@@ -56,13 +56,13 @@ public function store(Request $request, Appointment $appointment)
 
         $appointment = Appointment::findOrFail($id);
 
-        $appointment->name = $validatedData['name'];
+        $appointment->fullname = $validatedData['fullname'];
         $appointment->date = $validatedData['date'];
         $appointment->time = $validatedData['time'];
         $appointment->reason = $validatedData['reason'];
         $appointment->save();
 
-        return redirect()->route('admin.pages.appointments.appointments')->with('success', 'Appointment updated successfully.');
+        return redirect()->route('appointments.appointments')->with('success', 'Appointment updated successfully.');
     }
 
 
@@ -70,7 +70,18 @@ public function store(Request $request, Appointment $appointment)
     {
         $appt = Appointment::findOrFail($id);
         $appt->delete();
-        return redirect()->route('admin.pages.appointments.appointments')->with('success', 'Task deleted successfully.');
+        return redirect()->route('appointments.appointments')->with('success', 'Task deleted successfully.');
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+
+        $appointment = Appointment::findOrFail($id);
+        $appointment->status = 1;
+        $appointment->save();
+
+        return redirect()->route('appointments.appointments')->with('success', 'APPOINTMENT APPROVED');
+    }
+
 
 }

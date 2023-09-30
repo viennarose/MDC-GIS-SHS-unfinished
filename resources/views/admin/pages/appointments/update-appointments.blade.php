@@ -58,6 +58,12 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="text-center mb-2 flex justify-between items-center">
+                        <button type="submit"
+                            class="px-4 me-3 py-2 bg-green-500 text-white w-full rounded hover:bg-green-600">Approve Appointment</button>
+                        <button type="submit"
+                            class="px-4 py-2 bg-red-500 text-white w-full rounded hover:bg-red-600">Cancel Appointment</button>
+                    </div>
                     <div class="text-center">
                         <button type="submit"
                             class="px-4 py-2 bg-blue-500 text-white w-full rounded hover:bg-blue-600">Submit</button>

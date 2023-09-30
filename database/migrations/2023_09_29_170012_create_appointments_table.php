@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('date')->nullable();
             $table->string('time')->nullable();
             $table->longText('reason')->nullable();
+            $table->tinyInteger('status')->default(0)->comment('0 = pending, 1 = approved');
 
             $table->timestamps();
 
