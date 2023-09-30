@@ -3,7 +3,7 @@
 @include('normal-view.layout.navbar')
 
 @section('title')
-    Contact Us
+    Feedback
 @endsection
 
 @section('content')

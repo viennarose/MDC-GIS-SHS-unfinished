@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <title>MDC-GIS-SHS | @yield('title')</title>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="antialiased bg-black"
@@ -23,7 +23,7 @@
     <div class="wrapper py-8 px-4 lg:px-0">
         @yield('content')
     </div>
-
+    @yield('scripts')
 </body>
 
 <footer class="bg-black text-white py-4">
