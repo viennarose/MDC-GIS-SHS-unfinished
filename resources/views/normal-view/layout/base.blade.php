@@ -14,12 +14,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body class="antialiased bg-black"
+<body class="antialiased bg-black hold-transition sidebar-mini layout-fixed layout-navbar-fixed"
     style="
             background-image: url('/images/bg1.png');
             background-repeat: no-repeat;
             background-size: 100%;
         ">
+
     <div class="wrapper py-8 px-4 lg:px-0">
         @yield('content')
     </div>

@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="grid md:grid-cols-2 gap-4">
-                        <div class="mb-4">
+                        {{-- <div class="mb-4">
                             <label for="phone_number" class="block text-gray-700 font-bold mb-2">Phone Number</label>
                             <input type="tel" id="phone_number" name="phone_number" placeholder="Phone Number"
                                 class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
@@ -68,8 +68,8 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
-                        <div class="mb-4">
+                        </div> --}}
+                        {{-- <div class="mb-4">
                             <label for="address" class="block text-gray-700 font-bold mb-2">Address</label>
                             <input type="text" id="address" name="address" placeholder="Address"
                                 class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" />
@@ -78,7 +78,7 @@
                                     {{ $message }}
                                 </div>
                             @enderror
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="mb-4">
                         <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
