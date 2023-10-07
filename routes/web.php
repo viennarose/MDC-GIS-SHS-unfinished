@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\AdminIndexController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\AppointmentController;
@@ -40,6 +41,13 @@ Route::post('/logout', [AuthIndexController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/dashboard', [AdminIndexController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
+
+
+    Route::get('/admin/activities', [ActivityController::class, 'activities'])->name('activities.activities');
+    Route::post('/admin/activities', [ActivityController::class, 'store'])->name('activities.store');
+    Route::put('/admin/activities/{id}', [ActivityController::class, 'update'])->name('activities.update');
+    Route::delete('/admin/activities/{id}', [ActivityController::class, 'destroy'])->name('activities.destroy');
+
     Route::get('/admin/appointments', [AppointmentController::class, 'appointments'])->name('appointments.appointments');
     Route::post('/admin/appointments', [AppointmentController::class, 'store'])->name('appointments.store');
     Route::put('/admin/appointments/{id}', [AppointmentController::class, 'update'])->name('appointments.update');

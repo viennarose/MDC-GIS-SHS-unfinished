@@ -91,11 +91,20 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/appointments"
+                            <a href="/admin/chats"
                                 class="nav-link {{ 'admin/chats' == request()->path() ? 'active2' : '' }}">
                                 <i class="nav-icon fa-solid fa-inbox"></i>
                                 <p>
                                     Chats
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/activities"
+                                class="nav-link {{ 'admin/activities' == request()->path() ? 'active2' : '' }}">
+                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <p>
+                                    Activities
                                 </p>
                             </a>
                         </li>
