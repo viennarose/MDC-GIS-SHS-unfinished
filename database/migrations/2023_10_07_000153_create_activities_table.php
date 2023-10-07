@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->longText('title');
-            $table->longText('image');
-            $table->longText('description');
+            $table->longText('title')->nullable();
+            $table->longText('image')->nullable();
+            $table->longText('description')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
 
 
