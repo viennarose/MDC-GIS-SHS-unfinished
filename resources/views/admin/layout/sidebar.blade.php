@@ -90,6 +90,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/admin/appointments"
+                                class="nav-link {{ 'admin/chats' == request()->path() ? 'active2' : '' }}">
+                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <p>
+                                    Chats
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item menu-close">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa-solid fa-list"></i>
