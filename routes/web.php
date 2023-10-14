@@ -4,7 +4,10 @@ use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\AdminIndexController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\AppointmentController;
+use App\Http\Controllers\Admin\ChatsController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Auth\AuthIndexController;
 use App\Http\Controllers\Normal_View\IndexController;
 use App\Http\Controllers\Normal_View\NormalActivityController;
@@ -26,6 +29,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/about-us', [IndexController::class, 'about']);
+Route::get('/dashboard', [IndexController::class, 'dashboardNormal']);
 Route::get('/contact-us', [NormalContactUsController::class, 'contact']);
 Route::post('/contact-us', [NormalContactUsController::class, 'contactUsStore'])->name('contact-us.submit');
 Route::get('/announcements', [NormalAnnouncementController::class, 'announcement']);
@@ -43,6 +47,17 @@ Route::post('/logout', [AuthIndexController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/dashboard', [AdminIndexController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
+    Route::get('/admin/chats', [ChatsController::class, 'chats']);
+
+
+    Route::get('/admin/feedbacks', [FeedbackController::class, 'feedbacks'])->name('feedbacks.feedbacks');
+
+
+
+    Route::get('/admin/users', [UsersController::class, 'users'])->name('users.users');
+    Route::post('/admin/users', [UsersController::class, 'store'])->name('users.store');
+    Route::put('/admin/users/{id}', [UsersController::class, 'update'])->name('users.update');
+    Route::delete('/admin/users/{id}', [UsersController::class, 'destroy'])->name('users.destroy');
 
 
     Route::get('/admin/activities', [ActivityController::class, 'activities'])->name('activities.activities');

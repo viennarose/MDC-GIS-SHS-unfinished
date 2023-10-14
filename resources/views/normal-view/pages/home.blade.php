@@ -1,10 +1,10 @@
 @extends('normal-view.layout.base')
-
+@include('normal-view.layout.navbar')
 @section('title')
     Home
 @endsection
 
-@section('content')
+@section('home-content')
     <div class="mx-auto px-4">
         <div class="text-center mb-8">
             <h1 class="bg-gray-200 px-2 rounded"></h1>

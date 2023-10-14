@@ -1,6 +1,6 @@
-@extends('normal-view.layout.base')
+{{-- @extends('normal-view.layout.base') --}}
 
-@include('normal-view.layout.navbar')
+@extends('normal-view.layout.dashboard')
 
 @section('title')
     Set an Appointment

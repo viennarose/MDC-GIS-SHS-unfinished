@@ -108,15 +108,45 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/admin/feedbacks"
+                                class="nav-link {{ 'admin/feedbacks' == request()->path() ? 'active2' : '' }}">
+                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <p>
+                                    Feedbacks
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/users"
+                                class="nav-link {{ 'admin/users' == request()->path() ? 'active2' : '' }}">
+                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <p>
+                                    Users
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item menu-close">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa-solid fa-list"></i>
                                 <p>
-                                    List
+                                    Questionnaires
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>Counseling Form</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>Exit Questionnaire</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="nav-icon far fa-circle"></i>
