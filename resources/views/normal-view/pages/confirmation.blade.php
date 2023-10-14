@@ -1,10 +1,8 @@
-@extends('normal-view.layout.base')
+@extends('normal-view.layout.dashboard')
 
 @section('title')
     Announcement
 @endsection
-
-@include('normal-view.layout.navbar')
 
 @section('content')
     <div class="container mx-auto p-4">

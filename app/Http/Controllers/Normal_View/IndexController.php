@@ -13,7 +13,7 @@ class IndexController extends Controller
     public function index()
     {
         if (auth()->check()) {
-            return back();
+            view('normal-view.pages.home');
         }
         return view('normal-view.pages.home');
     }

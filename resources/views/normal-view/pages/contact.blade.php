@@ -1,6 +1,4 @@
-@extends('normal-view.layout.base')
-
-@include('normal-view.layout.navbar')
+@extends('normal-view.layout.dashboard')
 
 @section('title')
     Feedback
