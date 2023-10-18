@@ -1,20 +1,21 @@
 <?php
 
-use App\Http\Controllers\Admin\ActivityController;
-use App\Http\Controllers\Admin\AdminIndexController;
-use App\Http\Controllers\Admin\AnnouncementController;
-use App\Http\Controllers\Admin\AppointmentController;
-use App\Http\Controllers\Admin\ChatsController;
-use App\Http\Controllers\Admin\ContactUsController;
-use App\Http\Controllers\Admin\FeedbackController;
-use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Auth\AuthIndexController;
-use App\Http\Controllers\Normal_View\IndexController;
-use App\Http\Controllers\Normal_View\NormalActivityController;
-use App\Http\Controllers\Normal_View\NormalAnnouncementController;
-use App\Http\Controllers\Normal_View\NormalContactUsController;
-use App\Http\Controllers\Normal_View\SetAppointmentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ChatsController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\ActivityController;
+use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Auth\AuthIndexController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\AdminIndexController;
+use App\Http\Controllers\Admin\AppointmentController;
+use App\Http\Controllers\Normal_View\IndexController;
+use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Normal_View\NormalActivityController;
+use App\Http\Controllers\Normal_View\SetAppointmentController;
+use App\Http\Controllers\Normal_View\NormalContactUsController;
+use App\Http\Controllers\Normal_View\NormalAnnouncementController;
+use App\Http\Controllers\Admin\Questionnaires\CounselingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +47,7 @@ Route::post('/logout', [AuthIndexController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/dashboard', [AdminIndexController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
+
     Route::get('/admin/chats', [ChatsController::class, 'chats']);
 
 
@@ -72,6 +73,13 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::put('/appointments/{id}/update-status', [AppointmentController::class, 'updateStatus'])->name('appointments.updateStatus');
 
     Route::get('/admin/messages', [ContactUsController::class, 'message']);
+
+    Route::get('/admin/counseling', [CounselingController::class, 'counseling']);
+    Route::get('/admin/counselings/create', [CounselingController::class, 'counselingCreate'])->name('counselings.create');
+    Route::post('/admin/counselings/create', [CounselingController::class, 'counselingstore']);
+    Route::get('/admin/counselings/{id}/update', [CounselingController::class, 'counselingUpdate'])->name('admin.counselings.update');
+
+    Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
     Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate'])->name('announcements.create');
     Route::post('/admin/announcements/create', [AnnouncementController::class, 'announcementStore']);
     Route::get('/admin/announcements/{id}/update', [AnnouncementController::class, 'announcementUpdate'])->name('admin.announcements.update');
