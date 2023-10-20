@@ -199,7 +199,7 @@
             <div class="content px-2">
 
                 @yield('content')
-
+                @yield('scripts')
             </div>
         </div>
 

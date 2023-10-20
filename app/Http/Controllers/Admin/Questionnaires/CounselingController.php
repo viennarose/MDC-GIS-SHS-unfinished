@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin\Questionnaires;
 
+use PDF;
 use Illuminate\Http\Request;
 use App\Models\CounselingForm;
 use App\Http\Controllers\Controller;
@@ -56,6 +57,41 @@ class CounselingController extends Controller
 
         ]);
 
-        return redirect('/admin/counselings/create')->with('message', 'New counseling Added');
+        return redirect('/admin/counseling')->with('message', 'New counseling Added');
     }
+
+    public function counselingEdit($id)
+    {
+        $counseling = CounselingForm::findOrFail($id);
+        return view('admin.pages.questionnaires.counseling-update', compact('counseling'));
+    }
+
+    public function counselingUpdate(Request $request, $id)
+{
+    $counseling = CounselingForm::find($id);
+    $counseling->update($request->all()); // Update the counseling record with the submitted data
+    return redirect('/admin/counseling')->with('message', 'Counseling Form Updated!'); // Redirect to the index page or a success page
+}
+
+
+public function destroy($id)
+{
+    $counseling = CounselingForm::findOrFail($id);
+    $counseling->delete();
+    return redirect('/admin/counseling')->with('message', 'Counseling deleted successfully.');
+}
+
+
+public function downloadPDF($id) {
+    $counseling = CounselingForm::findOrFail($id);
+
+    $pdf = PDF::loadView('admin.pages.questionnaires.counseling-pdf', compact('counseling'));
+
+    return $pdf->download('counseling_form.pdf');
+}
+
+public function printCounseling($id) {
+    $counseling = CounselingForm::findOrFail($id);
+    return view('admin.pages.questionnaires.counseling-pdf', compact('counseling'));
+}
 }

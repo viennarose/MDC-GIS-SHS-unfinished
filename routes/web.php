@@ -77,7 +77,13 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/counseling', [CounselingController::class, 'counseling']);
     Route::get('/admin/counselings/create', [CounselingController::class, 'counselingCreate'])->name('counselings.create');
     Route::post('/admin/counselings/create', [CounselingController::class, 'counselingstore']);
-    Route::get('/admin/counselings/{id}/update', [CounselingController::class, 'counselingUpdate'])->name('admin.counselings.update');
+    Route::get('/admin/counselings/{id}/update', [CounselingController::class, 'counselingEdit']);
+    Route::put('/admin/counselings/{id}/update', [CounselingController::class, 'counselingUpdate'])->name('admin.counselings.update');
+    Route::delete('/admin/counselings/{id}', [CounselingController::class, 'destroy'])->name('counselings.destroy');
+    Route::get('admin/counselings/pdf/{id}', [CounselingController::class, 'downloadPDF'])
+    ->name('admin.counselings.pdf');
+    Route::get('admin/counselings/print/{id}', [CounselingController::class, 'printCounseling'])
+    ->name('admin.counselings.print');
 
     Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
     Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate'])->name('announcements.create');

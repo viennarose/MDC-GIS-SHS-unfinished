@@ -5,6 +5,18 @@
 @endsection
 
 @section('content')
+@if (session('message'))
+        <div class="bg-green-200 border-l-4 border-r-4 text-center border-green-500 text-green-700 p-4 relative">
+            <span class="block sm:inline text-bold"><i class="fas fa-bullhorn"></i> {{ session('message') }}</span>
+            <button class="absolute top-0 right-0 mt-4 mr-2 text-md text-green-700 hover:text-green-500 focus:outline-none"
+                onclick="this.parentElement.style.display = 'none';">
+                <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path
+                        d="M6.293 6.293a1 1 0 0 1 1.414 0L10 8.586l2.293-2.293a1 1 0 1 1 1.414 1.414L11.414 10l2.293 2.293a1 1 0 0 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 1 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 0-1.414z" />
+                </svg>
+            </button>
+        </div>
+    @endif
     <div class="bg-white rounded-lg shadow-lg p-6">
         <div class="flex justify-between mb-4">
             <span class="text-bold text-2xl">Total Entries: {{ $counselings->count() }}</span>
@@ -17,8 +29,8 @@
                 <thead>
                     <tr>
                         <th class="px-4 py-2 bg-gray-100 border-b border-gray-300">ID No.</th>
-                        <th class="px-4 py-2 bg-gray-100 border-b border-gray-300">student_name</th>
-                        <th class="px-4 py-2 bg-gray-100 border-b border-gray-300">course_year</th>
+                        <th class="px-4 py-2 bg-gray-100 border-b border-gray-300">Student name</th>
+                        <th class="px-4 py-2 bg-gray-100 border-b border-gray-300">Course and Year</th>
                         <th class="px-4 py-2 bg-gray-100 border-b border-gray-300">Date</th>
                         <th class="px-4 py-2 bg-gray-100 border-b border-gray-300">Action</th>
                     </tr>
@@ -38,15 +50,22 @@
                                             class="px-4 py-2 text-black rounded-full hover:bg-yellow-600 bg-yellow-500">Update</a>
                                     </span>
                                     <span>
-                                        <form action="/admin/counseling/delete" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit"
-                                                class="px-4 py-2 text-white rounded-full hover:bg-red-600 bg-red-700">Delete</button>
-                                        </form>
+                                        <button type="submit" class="px-4 py-2 text-white rounded-full hover:bg-red-600 bg-red-700"
+                                    data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                        @include('admin.pages.questionnaires.counseling-delete')
+                                    </span>
+                                    <span>
+                                        <a href="{{ route('admin.counselings.pdf', $cnslng->id) }}"
+                                            class="px-4 py-2 text-white rounded-full bg-green-600 hover:bg-green-700">Download</a>
+                                    </span>
+                                    <span>
+                                        <button class="px-4 py-2 text-white rounded-full bg-blue-600 hover:bg-blue-700"
+                                            onclick="printCounseling({{ $cnslng->id }})">Print</button>
                                     </span>
                                 </div>
+
                             </td>
+
                         </tr>
                     @endforeach
                 </tbody>
@@ -61,4 +80,16 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    function printCounseling(counselingId) {
+        const printUrl = "{{ route('admin.counselings.print', ':id') }}".replace(':id', counselingId);
+        const printWindow = window.open(printUrl, '_blank');
+        printWindow.onload = function () {
+            printWindow.print();
+        };
+    }
+</script>
 @endsection
