@@ -136,7 +136,8 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/admin/counseling"
+                                    class="nav-link {{ 'admin/users' == request()->path() ? 'active2' : '' }}">
                                         <i class="nav-icon far fa-circle"></i>
                                         <p>Counseling Form</p>
                                     </a>
@@ -198,7 +199,7 @@
             <div class="content px-2">
 
                 @yield('content')
-
+                @yield('scripts')
             </div>
         </div>
 
