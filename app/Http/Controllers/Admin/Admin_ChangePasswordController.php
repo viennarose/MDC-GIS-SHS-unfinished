@@ -35,6 +35,6 @@ class Admin_ChangePasswordController extends Controller
 
         User::find(auth()->user()->id)->update(['password'=> bcrypt($request->new_password)]);
 
-        return redirect()->route('admin/profile')->with('status', 'Password changed successfully!');
+        return redirect()->route('admin.profile')->with('status', 'Password changed successfully!');
      }
 }
