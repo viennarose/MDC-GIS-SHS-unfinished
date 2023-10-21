@@ -1,21 +1,25 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\ChatsController;
-use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Admin\ActivityController;
-use App\Http\Controllers\Admin\FeedbackController;
-use App\Http\Controllers\Auth\AuthIndexController;
-use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\Admin_ChangePasswordController;
+use App\Http\Controllers\Admin\Admin_ProfileController;
 use App\Http\Controllers\Admin\AdminIndexController;
-use App\Http\Controllers\Admin\AppointmentController;
-use App\Http\Controllers\Normal_View\IndexController;
 use App\Http\Controllers\Admin\AnnouncementController;
-use App\Http\Controllers\Normal_View\NormalActivityController;
-use App\Http\Controllers\Normal_View\SetAppointmentController;
-use App\Http\Controllers\Normal_View\NormalContactUsController;
-use App\Http\Controllers\Normal_View\NormalAnnouncementController;
+use App\Http\Controllers\Admin\AppointmentController;
+use App\Http\Controllers\Admin\ChatsController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\Questionnaires\CounselingController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Auth\AuthIndexController;
+use App\Http\Controllers\Normal_View\ChangePasswordController;
+use App\Http\Controllers\Normal_View\IndexController;
+use App\Http\Controllers\Normal_View\NormalActivityController;
+use App\Http\Controllers\Normal_View\NormalAnnouncementController;
+use App\Http\Controllers\Normal_View\NormalContactUsController;
+use App\Http\Controllers\Normal_View\ProfileController;
+use App\Http\Controllers\Normal_View\SetAppointmentController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,7 +93,17 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate'])->name('announcements.create');
     Route::post('/admin/announcements/create', [AnnouncementController::class, 'announcementStore']);
     Route::get('/admin/announcements/{id}/update', [AnnouncementController::class, 'announcementUpdate'])->name('admin.announcements.update');
+
+    Route::get('admin/profile', [Admin_ProfileController::class, 'index'])->name('admin.profile');
+    Route::put('admin/update-profile/{id}', [Admin_ProfileController::class, 'update_profile'])->name('admin.change_profile');
+    Route::get('admin/change-password/{id}', [Admin_ChangePasswordController::class, 'index'])->name('admin.change_password.index');
+    Route::post('admin/change-password', [Admin_ChangePasswordController::class, 'change_password'])->name('admin.change_password');
+
 });
 Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/dashboard', [IndexController::class, 'dashboardNormal']);
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+    Route::put('/update-profile/{id}', [ProfileController::class, 'update_profile'])->name('change_profile');
+    Route::get('/change-password/{id}', [ChangePasswordController::class, 'index'])->name('change_password.index');
+    Route::post('/change-password', [ChangePasswordController::class, 'change_password'])->name('change_password');
 });
