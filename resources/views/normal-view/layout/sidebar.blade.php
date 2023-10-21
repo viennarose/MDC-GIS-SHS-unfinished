@@ -80,9 +80,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="inventory" class="nav-link {{ 'inventory' == request()->path() ? 'active2' : '' }}">>
                                         <i class="nav-icon far fa-circle"></i>
-                                        <p>List</p>
+                                        <p>My Inventory</p>
                                     </a>
                                 </li>
                             </ul>
@@ -99,8 +99,8 @@
                             <ul class="nav nav-treeview">
 
                                 <li class="nav-item">
-                                    <a href="#"
-                                        class="nav-link {{ '/dashboard' == request()->path() ? 'active2' : '' }}">
+                                    <a href="{{ route('profile') }}"
+                                        class="nav-link {{ '/profile' == request()->path() ? 'active2' : '' }}">
                                         <i class="fa-solid fa-user nav-icon"></i>
                                         <p>My Profile</p>
                                     </a>
