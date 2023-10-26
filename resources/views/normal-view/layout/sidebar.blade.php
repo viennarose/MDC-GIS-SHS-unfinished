@@ -25,6 +25,7 @@
                                 </p>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="contact-us"
                                 class="nav-link {{ '/contact-us' == request()->path() ? 'active2' : '' }}">
@@ -105,6 +106,14 @@
                                         <p>My Profile</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/chatify') }}"
+                                        class="nav-link {{ '/chatify' == request()->path() ? 'active2' : '' }}">
+                                        <i class="fa-solid fa-message nav-icon"></i>
+                                        <p>Chats</p>
+                                    </a>
+                                </li>
+
                                 <li class="nav-item">
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf

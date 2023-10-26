@@ -91,15 +91,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/chats"
-                                class="nav-link {{ 'admin/chats' == request()->path() ? 'active2' : '' }}">
-                                <i class="nav-icon fa-solid fa-inbox"></i>
-                                <p>
-                                    Chats
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="/admin/activities"
                                 class="nav-link {{ 'admin/activities' == request()->path() ? 'active2' : '' }}">
                                 <i class="nav-icon fa-solid fa-inbox"></i>
@@ -181,6 +172,13 @@
                                         class="nav-link {{ 'admin/profile' == request()->path() ? 'active2' : '' }}">
                                         <i class="fa-solid fa-user nav-icon"></i>
                                         <p>My Profile</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/chatify') }}"
+                                        class="nav-link {{ '/chatify' == request()->path() ? 'active2' : '' }}">
+                                        <i class="fa-solid fa-message nav-icon"></i>
+                                        <p>Chats</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
