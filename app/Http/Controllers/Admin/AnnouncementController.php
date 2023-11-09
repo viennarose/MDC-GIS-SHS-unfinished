@@ -15,28 +15,5 @@ class AnnouncementController extends Controller
 
         return view('admin.pages.announcement', compact('announcements', 'count'));
     }
-    public function announcementCreate()
-    {
-        return view('admin.pages.announcement-create');
-    }
 
-    public function announcementStore(Request $request)
-    {
-        $request->validate([
-            'title' => 'required|max:255',
-            'remarks' => 'required',
-        ]);
-
-        Announcement::create([
-            'title'         =>      $request->input('title'),
-            'remarks'       =>      $request->input('remarks')
-        ]);
-
-        return redirect('/admin/announcements/create')->with('message', 'New Announcement Added');
-    }
-    public function announcementUpdate($id)
-    {
-        $announcement = Announcement::findOrFail($id);
-        return view('admin.pages.announcement-update', compact('announcement'));
-    }
 }

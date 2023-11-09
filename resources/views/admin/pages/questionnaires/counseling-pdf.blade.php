@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>GUIDANCE OFFICE</title>
     <style>
@@ -10,12 +11,10 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px;
             background-color: #fff;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .title {
@@ -44,6 +43,7 @@
         .content {
             border: 1px solid #ccc;
             padding: 10px;
+            margin-bottom: 10px;
         }
 
         .border-dark {
@@ -51,38 +51,79 @@
             padding: 10px;
             margin-top: 10px;
         }
+
+        .text-underline {
+            text-decoration: underline;
+            font-weight: 100;
+        }
+
+        label {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .header-img {
+            max-width: 50%;
+            height: auto;
+            margin: 10px auto;
+            display: block;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <p class="title">COUNSELING FORM</p>
+        <img src="{{ public_path('images/header.png') }}" alt="Header Photo" class="header-img"
+            style="max-width: 50%; height: auto; margin: 20px auto; display: block;">
         <hr>
+        <p class="title">COUNSELING FORM</p>
+
         <div class="row">
             <div class="col">
-                <div class="label">Name of Student</div>
-                <div class="content">{{ $counseling->student_name }}</div>
+                <div class="label">Name of Student: <span class="text-underline"> {{ $counseling->student_name }}</span></div>
+
             </div>
             <div class="col">
-                <div class="label">Date</div>
-                <div class="content">{{ $counseling->date }}</div>
+                <div class="label">Date: <span class="text-underline">{{ $counseling->date }} </span></div>
+
             </div>
         </div>
         <div class="row">
             <div class="col">
-                <div class="label">Course and Year</div>
-                <div class="content">{{ $counseling->course_year }}</div>
+                <div class="label">Course and Year: <span class="text-underline"> {{ $counseling->course_year }}</span></div>
+
             </div>
             <div class="col">
-                <div class="label">Department</div>
-                <div class="content">{{ $counseling->department }}</div>
+                <div class="label">Department: <span class="text-underline">{{ $counseling->department }} </span></div>
+
             </div>
             <div class="col">
-                <div class="label">Contact number</div>
-                <div class="content">{{ $counseling->contact_num }}</div>
+                <div class="label">Contact number: <span class="text-underline"{{ $counseling->contact_num }}> </span></div>
+
             </div>
         </div>
-        <div class="label">Nature of Visit</div>
-        <div class="content">{{ $counseling->visit_nature }}</div>
+
+        <div>
+            <div class="label">Nature of Visit</div>
+            <label>
+                <input type="checkbox" name="visit_nature" value="Referral"
+                    {{ $counseling->visit_nature === 'Referral' ? 'checked' : '' }}>
+                Referral
+            </label>
+            <label>
+                <input type="checkbox" name="visit_nature" value="Walk-in"
+                    {{ $counseling->visit_nature === 'Walk-in' ? 'checked' : '' }}>
+                Walk-in
+            </label>
+        </div>
 
         <div class="label">Problem(s)/Concern(s)</div>
         <div class="content">{{ $counseling->concern }}</div>
@@ -99,46 +140,56 @@
 
         <div class="row">
             <div class="col">
-                <div class="label">Counselee</div>
-                <div class="content">{{ $counseling->counselee }}</div>
+                @if ($counseling->counselee)
+                    <div class="text-center"><u>{{ $counseling->counselee }}</u></div>
+                @else
+                    <u>&nbsp;&nbsp;</u>
+                @endif
+
+                <div class="label text-center">Counselee</div>
             </div>
             <div class="col">
-                <div class="label">Counselor</div>
-                <div class="content">{{ $counseling->counselor }}</div>
+                @if ($counseling->counselor)
+                    <div class="text-center"><u>{{ $counseling->counselor }}</u></div>
+                @else
+                    <u>&nbsp;&nbsp;</u>
+                @endif
+
+                <div class="label text-center">Counselor</div>
             </div>
         </div>
-        <div style="page-break-before: always;"></div>
+        {{-- <div style="page-break-before: always;"></div> --}}
         <div class="border-dark">
             <p class="title">COUNSELING SLIP</p>
             <div class="row">
                 <div class="col">
-                    <div class="label">Name of Student</div>
-                    <div class="content">{{ $counseling->student_name }}</div>
+                    <div class="label">Name of Student: <span
+                            class="text-underline">{{ $counseling->student_name }}</span></div>
                 </div>
                 <div class="col">
-                    <div class="label">Date</div>
-                    <div class="content">{{ $counseling->date }}</div>
+                    <div class="label">Date: <span class="text-underline">{{ $counseling->date }}</span></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="label">Course and Year</div>
-                    <div class="content">{{ $counseling->course_year }}</div>
+                    <div class="label">Course and Year: <span
+                            class="text-underline">{{ $counseling->course_year }}</span></div>
                 </div>
                 <div class="col">
-                    <div class="label">Department</div>
-                    <div class="content">{{ $counseling->department }}</div>
+                    <div class="label">Department: <span
+                            class="text-underline">{{ $counseling->department }}</span></div>
                 </div>
                 <div class="col">
-                    <div class="label">Contact number</div>
-                    <div class="content">{{ $counseling->contact_num }}</div>
+                    <div class="label">Contact number: <span
+                            class="text-underline">{{ $counseling->contact_num }}</span></div>
                 </div>
             </div>
             <div class="col">
-                <div class="label">Session Ended</div>
-                <div class="content">{{ $counseling->session_ended }}</div>
+                <div class="label">Session Ended: <span
+                        class="text-underline">{{ $counseling->session_ended }}</span></div>
             </div>
         </div>
     </div>
 </body>
+
 </html>

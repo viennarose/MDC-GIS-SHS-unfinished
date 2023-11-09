@@ -44,7 +44,7 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img id="sidebar-img" src="{{ Auth::user()->profile_image === null ? url('images/profile.jpg') : Storage::url(Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image"
+                        <img id="sidebar-img" src="{{ Auth::user()->profile_image === null ? url('images/profile.jpg') : asset('user_img/' .Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image"
                             style="border-radius: 50%; width: 40px; height: 40px;">
                     </div>
                     <div class="info">
@@ -72,19 +72,11 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/admin/messages"
-                                class="nav-link {{ 'admin/messages' == request()->path() ? 'active2' : '' }}">
-                                <i class="nav-icon fa-solid fa-inbox"></i>
-                                <p>
-                                    Messages
-                                </p>
-                            </a>
-                        </li>
+
                         <li class="nav-item">
                             <a href="/admin/appointments"
                                 class="nav-link {{ 'admin/appointments' == request()->path() ? 'active2' : '' }}">
-                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <i class="nav-icon fa-solid fa-calendar-check"></i>
                                 <p>
                                     Appointments
                                 </p>
@@ -102,7 +94,7 @@
                         <li class="nav-item">
                             <a href="/admin/feedbacks"
                                 class="nav-link {{ 'admin/feedbacks' == request()->path() ? 'active2' : '' }}">
-                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <i class="nav-icon fa-solid fa-comment"></i>
                                 <p>
                                     Feedbacks
                                 </p>
@@ -120,7 +112,7 @@
                         <li class="nav-item">
                             <a href="/admin/users"
                                 class="nav-link {{ 'admin/users' == request()->path() ? 'active2' : '' }}">
-                                <i class="nav-icon fa-solid fa-inbox"></i>
+                                <i class="nav-icon fa-solid fa-users"></i>
                                 <p>
                                     Users
                                 </p>

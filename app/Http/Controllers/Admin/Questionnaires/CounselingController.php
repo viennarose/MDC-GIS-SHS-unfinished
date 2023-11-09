@@ -86,7 +86,7 @@ public function downloadPDF($id) {
     $counseling = CounselingForm::findOrFail($id);
 
     $pdf = PDF::loadView('admin.pages.questionnaires.counseling-pdf', compact('counseling'));
-
+    $pdf->setPaper('Letter', 'portrait');
     return $pdf->download('counseling_form.pdf');
 }
 

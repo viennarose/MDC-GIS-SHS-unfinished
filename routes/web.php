@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ActivityController;
 use App\Http\Controllers\Admin\Admin_ChangePasswordController;
 use App\Http\Controllers\Admin\Admin_ProfileController;
+use App\Http\Controllers\Admin\AdminAnnouncementController;
 use App\Http\Controllers\Admin\AdminIndexController;
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\AppointmentController;
@@ -89,10 +90,18 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('admin/counselings/print/{id}', [CounselingController::class, 'printCounseling'])
     ->name('admin.counselings.print');
 
-    Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
-    Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate'])->name('announcements.create');
-    Route::post('/admin/announcements/create', [AnnouncementController::class, 'announcementStore']);
-    Route::get('/admin/announcements/{id}/update', [AnnouncementController::class, 'announcementUpdate'])->name('admin.announcements.update');
+    // Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
+    // Route::get('/admin/announcements', [AdminAnnouncementController::class, 'announcement']);
+
+    Route::get('/admin/announcements', [AdminAnnouncementController::class, 'announcements'])->name('announcements.announcements');
+    Route::post('/admin/announcements', [AdminAnnouncementController::class, 'store'])->name('announcements.store');
+    Route::put('/admin/announcements/{id}', [AdminAnnouncementController::class, 'update'])->name('announcements.update');
+    Route::delete('/admin/announcements/{id}', [AdminAnnouncementController::class, 'destroy'])->name('announcements.destroy');
+    // Route::get('/admin/announcements/create', [AnnouncementController::class, 'announcementCreate'])->name('announcements.create');
+    // Route::post('/admin/announcements/create', [AnnouncementController::class, 'announcementStore']);
+    // Route::get('/admin/announcements/{id}/update', [AnnouncementController::class, 'announcementUpdate'])->name('admin.announcements.update');
+    // Route::put('/admin/announcements/{id}/update', 'AnnouncementController@update')->name('admin.announcements.update');
+
 
     Route::get('admin/profile', [Admin_ProfileController::class, 'index'])->name('admin.profile');
     Route::put('admin/update-profile/{id}', [Admin_ProfileController::class, 'update_profile'])->name('admin.change_profile');

@@ -6,7 +6,7 @@
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img id="sidebar-img" src="{{ Auth::user()->profile_image === null ? url('images/profile.jpg') : Storage::url(Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image"
+                        <img id="sidebar-img" src="{{ Auth::user()->profile_image === null ? url('images/profile.jpg') : asset('user_img/' .Auth::user()->profile_image) }}" class="img-circle elevation-2" alt="User Image"
                             style="border-radius: 50%; width: 40px; height: 40px;">
                     </div>
                     <div class="info">

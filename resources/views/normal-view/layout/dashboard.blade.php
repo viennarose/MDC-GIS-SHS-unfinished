@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="app.css">
     <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>MDC-GIS-SHS | Admin Page</title>
+    <title>MDC-GIS-SHS</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.2.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"

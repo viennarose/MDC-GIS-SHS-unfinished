@@ -13,9 +13,15 @@ return new class extends Migration
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('remarks');
+            $table->unsignedBigInteger('user_id');
+            $table->longText('title')->nullable();
+            $table->longText('image')->nullable();
+            $table->longText('description')->nullable();
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')
+            ->onUpdate('cascade');
         });
     }
 
