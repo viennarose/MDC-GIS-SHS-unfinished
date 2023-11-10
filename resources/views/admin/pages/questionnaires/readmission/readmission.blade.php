@@ -1,7 +1,7 @@
 @extends('admin.layout.base')
 
 @section('content-header')
-    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Counseling Forms</h2>
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">readmission Forms</h2>
 @endsection
 
 @section('content')
@@ -19,8 +19,8 @@
     @endif
     <div class="bg-white rounded-lg shadow-lg p-6">
         <div class="flex justify-between mb-4">
-            <span class="text-bold text-2xl">Total Entries: {{ $counselings->count() }}</span>
-            <a href="/admin/counselings/create"
+            <span class="text-bold text-2xl">Total Entries: {{ $readmissions->count() }}</span>
+            <a href="/admin/readmissions/create"
                 class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Add Form </a>
         </div>
@@ -36,31 +36,31 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($counselings as $cnslng)
+                    @foreach ($readmissions as $readmission)
                         <tr class="hover:bg-gray-100 {{ $loop->iteration % 2 === 0 ? 'bg-gray-100' : '' }}">
-                            <td class="px-4 py-2 border-b border-gray-300">{{ $cnslng->id }}</td>
-                            <td class="px-4 py-2 border-b border-gray-300">{{ $cnslng->student_name }}</td>
-                            <td class="px-4 py-2 border-b border-gray-300">{{ $cnslng->course_year }}</td>
-                            <td class="px-4 py-2 border-b border-gray-300">{{ $cnslng->created_at->format('F j, Y') }}
+                            <td class="px-4 py-2 border-b border-gray-300">{{ $readmission->id }}</td>
+                            <td class="px-4 py-2 border-b border-gray-300">{{ $readmission->student_name }}</td>
+                            <td class="px-4 py-2 border-b border-gray-300">{{ $readmission->course_year }}</td>
+                            <td class="px-4 py-2 border-b border-gray-300">{{ $readmission->created_at->format('F j, Y') }}
                             </td>
                             <td class="px-4 py-2 border-b border-gray-300">
                                 <div class="flex justify-between items-center">
                                     <span>
-                                        <a href="{{ route('admin.counselings.update', $cnslng->id) }}"
+                                        <a href="{{ route('admin.readmissions.update', $readmission->id) }}"
                                             class="px-4 py-2 text-black rounded-full hover:bg-yellow-600 bg-yellow-500">Update</a>
                                     </span>
                                     <span>
                                         <button type="submit" class="px-4 py-2 text-white rounded-full hover:bg-red-600 bg-red-700"
                                     data-toggle="modal" data-target="#deleteModal">Delete</button>
-                                        @include('admin.pages.questionnaires.counseling-delete')
+                                        @include('admin.pages.questionnaires.readmission.readmission-delete')
                                     </span>
                                     <span>
-                                        <a href="{{ route('admin.counselings.pdf', $cnslng->id) }}"
+                                        <a href="{{ route('admin.readmissions.pdf', $readmission->id) }}"
                                             class="px-4 py-2 text-white rounded-full bg-green-600 hover:bg-green-700">Download</a>
                                     </span>
                                     <span>
                                         <button class="px-4 py-2 text-white rounded-full bg-blue-600 hover:bg-blue-700"
-                                            onclick="printCounseling({{ $cnslng->id }})">Print</button>
+                                            onclick="printReadmission({{ $readmission->id }})">Print</button>
                                     </span>
                                 </div>
 
@@ -70,13 +70,13 @@
                     @endforeach
                 </tbody>
             </table>
-            @if ($counselings->count() === 0)
+            @if ($readmissions->count() === 0)
                 <p class="text-center mt-3">
-                    No counselings found. Please add one!
+                    No readmissions found. Please add one!
                 </p>
             @endif
             <div class="my-4">
-                {{ $counselings->links('admin.layout.pagination') }}
+                {{ $readmissions->links('admin.layout.pagination') }}
             </div>
         </div>
     </div>
@@ -84,8 +84,8 @@
 
 @section('scripts')
 <script>
-    function printCounseling(counselingId) {
-        const printUrl = "{{ route('admin.counselings.print', ':id') }}".replace(':id', counselingId);
+    function printreadmission(readmissionId) {
+        const printUrl = "{{ route('admin.readmissions.print', ':id') }}".replace(':id', readmissionId);
         const printWindow = window.open(printUrl, '_blank');
         printWindow.onload = function () {
             printWindow.print();

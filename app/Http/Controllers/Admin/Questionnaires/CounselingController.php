@@ -15,12 +15,12 @@ class CounselingController extends Controller
         $count = CounselingForm::count();
         $counselings = CounselingForm::orderBy('id', 'asc')->paginate(10);
 
-        return view('admin.pages.questionnaires.counseling', compact('counselings', 'count'));
+        return view('admin.pages.questionnaires.counseling.counseling', compact('counselings', 'count'));
     }
 
     public function counselingCreate()
     {
-        return view('admin.pages.questionnaires.counseling-create');
+        return view('admin.pages.questionnaires.counseling.counseling-create');
     }
 
     public function counselingStore(Request $request)
@@ -63,7 +63,7 @@ class CounselingController extends Controller
     public function counselingEdit($id)
     {
         $counseling = CounselingForm::findOrFail($id);
-        return view('admin.pages.questionnaires.counseling-update', compact('counseling'));
+        return view('admin.pages.questionnaires.counseling.counseling-update', compact('counseling'));
     }
 
     public function counselingUpdate(Request $request, $id)
@@ -85,13 +85,13 @@ public function destroy($id)
 public function downloadPDF($id) {
     $counseling = CounselingForm::findOrFail($id);
 
-    $pdf = PDF::loadView('admin.pages.questionnaires.counseling-pdf', compact('counseling'));
+    $pdf = PDF::loadView('admin.pages.questionnaires.counseling.counseling-pdf', compact('counseling'));
     $pdf->setPaper('Letter', 'portrait');
     return $pdf->download('counseling_form.pdf');
 }
 
 public function printCounseling($id) {
     $counseling = CounselingForm::findOrFail($id);
-    return view('admin.pages.questionnaires.counseling-pdf', compact('counseling'));
+    return view('admin.pages.questionnaires.counseling.counseling-pdf', compact('counseling'));
 }
 }

@@ -16,9 +16,15 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('student_name');
             $table->string('course_year');
-            $table->string('date');
-            $table->longText('reason');
-            $table->longText('subject_affected');
+            $table->string('date1')->nullable();
+            $table->string('date2')->nullable();
+            $table->string('date3')->nullable();
+            $table->longText('reason1')->nullable();
+            $table->longText('reason2')->nullable();
+            $table->longText('reason3')->nullable();
+            $table->longText('subject_affected1')->nullable();
+            $table->longText('subject_affected2')->nullable();
+            $table->longText('subject_affected3')->nullable();
             $table->tinyInteger('granted');
             $table->longText('guidance_sig');
             $table->longText('osad_sig');

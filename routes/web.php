@@ -1,26 +1,27 @@
 <?php
 
-use App\Http\Controllers\Admin\ActivityController;
-use App\Http\Controllers\Admin\Admin_ChangePasswordController;
-use App\Http\Controllers\Admin\Admin_ProfileController;
-use App\Http\Controllers\Admin\AdminAnnouncementController;
-use App\Http\Controllers\Admin\AdminIndexController;
-use App\Http\Controllers\Admin\AnnouncementController;
-use App\Http\Controllers\Admin\AppointmentController;
-use App\Http\Controllers\Admin\ChatsController;
-use App\Http\Controllers\Admin\ContactUsController;
-use App\Http\Controllers\Admin\FeedbackController;
-use App\Http\Controllers\Admin\Questionnaires\CounselingController;
-use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Auth\AuthIndexController;
-use App\Http\Controllers\Normal_View\ChangePasswordController;
-use App\Http\Controllers\Normal_View\IndexController;
-use App\Http\Controllers\Normal_View\NormalActivityController;
-use App\Http\Controllers\Normal_View\NormalAnnouncementController;
-use App\Http\Controllers\Normal_View\NormalContactUsController;
-use App\Http\Controllers\Normal_View\ProfileController;
-use App\Http\Controllers\Normal_View\SetAppointmentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ChatsController;
+use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\Admin\ActivityController;
+use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Auth\AuthIndexController;
+use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\AdminIndexController;
+use App\Http\Controllers\Admin\AppointmentController;
+use App\Http\Controllers\Normal_View\IndexController;
+use App\Http\Controllers\Admin\AnnouncementController;
+use App\Http\Controllers\Admin\Admin_ProfileController;
+use App\Http\Controllers\Normal_View\ProfileController;
+use App\Http\Controllers\Admin\AdminAnnouncementController;
+use App\Http\Controllers\Admin\Admin_ChangePasswordController;
+use App\Http\Controllers\Normal_View\ChangePasswordController;
+use App\Http\Controllers\Normal_View\NormalActivityController;
+use App\Http\Controllers\Normal_View\SetAppointmentController;
+use App\Http\Controllers\Normal_View\NormalContactUsController;
+use App\Http\Controllers\Normal_View\NormalAnnouncementController;
+use App\Http\Controllers\Admin\Questionnaires\CounselingController;
+use App\Http\Controllers\Admin\Questionnaires\ReadmissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +90,19 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     ->name('admin.counselings.pdf');
     Route::get('admin/counselings/print/{id}', [CounselingController::class, 'printCounseling'])
     ->name('admin.counselings.print');
+
+
+
+    Route::get('/admin/readmission', [ReadmissionController::class, 'readmission']);
+    Route::get('/admin/readmissions/create', [ReadmissionController::class, 'readmissionCreate'])->name('readmissions.create');
+    Route::post('/admin/readmissions/create', [ReadmissionController::class, 'readmissionstore']);
+    Route::get('/admin/readmissions/{id}/update', [ReadmissionController::class, 'readmissionEdit']);
+    Route::put('/admin/readmissions/{id}/update', [ReadmissionController::class, 'readmissionUpdate'])->name('admin.readmissions.update');
+    Route::delete('/admin/readmissions/{id}', [ReadmissionController::class, 'destroy'])->name('readmissions.destroy');
+    Route::get('admin/readmissions/pdf/{id}', [ReadmissionController::class, 'downloadPDF'])
+    ->name('admin.readmissions.pdf');
+    Route::get('admin/readmissions/print/{id}', [ReadmissionController::class, 'printreadmission'])
+    ->name('admin.readmissions.print');
 
     // Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
     // Route::get('/admin/announcements', [AdminAnnouncementController::class, 'announcement']);

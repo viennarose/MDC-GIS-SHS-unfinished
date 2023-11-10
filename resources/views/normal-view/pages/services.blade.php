@@ -8,89 +8,46 @@
 
 @section('content')
     <div class="container mx-auto p-4">
-        <div class="flex items-center justify-center mt-10">
-            <div class="max-w-4xl bg-white shadow-lg rounded-lg overflow-hidden">
-                <div class="bg-cover bg-center h-64 p-4" style="background-image: url('/images/bg2.png')"></div>
+        <div class="flex items-center justify-center mt-5">
+            <div class="max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden">
+                {{-- <div class="bg-cover bg-center h-64 p-4" style="background-image: url('/images/bg2.png')"></div> --}}
                 <div class="p-4">
                     <h1 class="text-4xl font-bold mb-4 text-indigo-900 text-center">
                         Services
                     </h1>
-                    <p class="mb-4">
-                        We offer a wide range of services to meet the needs of
-                        our students and promote their academic and personal
-                        growth. Our services include:
-                    </p>
-                    <ul class="list-decimal ml-6">
-                        <li>
-                            Education Programs: Offering a range of academic
-                            programs, including standard and advanced courses to
-                            cater to students with varying abilities and
-                            interests.
-                        </li>
-                        <li>
-                            Extracurricular Activities: Providing a diverse
-                            array of extracurricular activities such as sports,
-                            music, drama, art, and clubs to enhance students'
-                            personal development.
-                        </li>
-                        <li>
-                            Counseling Services: Offering counseling and
-                            guidance services to support students' emotional
-                            well-being and help them navigate academic and
-                            personal challenges.
-                        </li>
-                        <li>
-                            Library Resources: Maintaining a well-equipped
-                            library with a wide selection of books, digital
-                            resources, and research materials for students'
-                            academic needs.
-                        </li>
-                        <li>
-                            Tutoring and Academic Support: Providing additional
-                            tutoring and academic support for students who
-                            require extra assistance in specific subjects or
-                            skills.
-                        </li>
-                        <li>
-                            Career Guidance: Offering career counseling,
-                            workshops, and resources to help students explore
-                            career options and make informed decisions about
-                            their future.
-                        </li>
-                        <li>
-                            Health and Wellness Programs: Promoting physical and
-                            mental well-being through health education, fitness
-                            programs, and access to healthcare resources.
-                        </li>
-                        <li>
-                            Technology Resources: Ensuring access to up-to-date
-                            technology, including computer labs and online
-                            learning platforms, to enhance digital literacy and
-                            learning experiences.
-                        </li>
-                        <li>
-                            Community Engagement: Encouraging community
-                            involvement through partnerships, service-learning
-                            opportunities, and volunteering to instill a sense
-                            of civic responsibility.
-                        </li>
-                        <li>
-                            Parent-Teacher Collaboration: Facilitating
-                            communication and collaboration between parents and
-                            teachers through meetings, workshops, and online
-                            platforms to support students' overall development.
-                        </li>
-                    </ul>
-                    <p class="mt-4">
-                        Explore our services to learn more about how we support
-                        our students on their educational journey. These
-                        services contribute to a holistic educational experience
-                        that addresses the academic, social, emotional, and
-                        physical needs of students while preparing them for
-                        future success. Keep in mind that the specific services
-                        offered by a school may vary depending on its level
-                        (e.g., elementary, middle, high school) and mission.
-                    </p>
+                    <p>GUIDANCE COUNSELOR DUTIES AND RESPONSIBILITIES
+                        <br>
+                        Under the supervision of the Vice President for Administration and Finance, and the Director of Student Affairs and Services, the duties of the Guidance Counselor are the following:
+<br>
+                        <br> 1. Develops a comprehensive guidance program for the entire school geared towards the optimum development of its clientele;
+                        <br> 2. Establishes policies, procedures, and guidelines for the implementation of the guidance services;
+                        <br> 3. Promotes research design to address the students’ needs and to further improve the guidance program and services;
+                        <br> 4. Supervises and assigns activities to the staff in the guidance office;
+                        <br>5. Assists the Director of the Institutional Monitoring and Evaluation System in administering the teacher’s evaluation to all students;
+                        <br>6. Monitors in service programs and professional development of staff;
+                        <br>7. Submits periodic reports;
+                        <br> 8. Undertakes continuing evaluation of the effectiveness of the guidance program;
+                        <br> 9. Acquaints academic and administrative heads on policies, procedures, and services of the guidance office;
+                        <br>10. Interview freshmen students and transferees during enrolment;
+                        <br>11. Prepares annual operation budget of the office;
+                        <br>12. Coordinates with the Vice President for Academics for the effectiveness of the college advisory program;
+                        <br>13. Performs other functions as mandated by the President or the Director of Student Services.
+
+                        <br>
+                        <br>
+                        <br>
+                        PSYCHOMETRICIAN DUTIES AND RESPONSIBILITIES
+
+                        <br>Under the supervision of the Vice President for Administration and Finance, the Director of Student Affairs and Services, and the Guidance Counselor, the duties of the Psychometrician are the following:
+                        <br><br> 1. Takes charge in the administration and interpretation of the testing activities of the school, including constructing and developing tests;
+                        <br> 2. Coordinates with appropriate persons for improvement of programs, policies, and procedures;
+                        <br>3. Ensures gathering and recording of complete client data for the individual inventory;
+                        <br>4. Assists the Guidance Counselor in organizing and conducting guidance related activities;
+                        <br>5. Keeps a record of activities and performances and submits periodic reports to the Guidance Counselor;
+                        <br> 6. Conducts research and evaluation to determine the effectiveness of strategies and services implemented;
+                        <br>7. Coordinates and/or runs enrichment programs for students and parents;
+                        <br> 8. Performs other functions as mandated by the President or the Director of Student Services, and the Guidance Counselor.
+                        </p>
                 </div>
             </div>
         </div>

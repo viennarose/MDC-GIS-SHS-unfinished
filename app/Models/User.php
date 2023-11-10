@@ -5,7 +5,9 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Activity;
 use App\Models\Feedback;
+use App\Models\Readmission;
 use App\Models\Announcement;
+use App\Models\CounselingForm;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
@@ -68,6 +70,9 @@ class User extends Authenticatable
     }
 
     public function counselings(){
-        return $this->hasMany(Feedback::class);
+        return $this->hasMany(CounselingForm::class);
+    }
+    public function readmissions(){
+        return $this->hasMany(Readmission::class);
     }
 }

@@ -135,6 +135,13 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
+                                    <a href="/admin/readmission"
+                                    class="nav-link {{ 'admin/readmission' == request()->path() ? 'active2' : '' }}">
+                                        <i class="nav-icon far fa-circle"></i>
+                                        <p>Readmission Form</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="nav-icon far fa-circle"></i>
                                         <p>Exit Questionnaire</p>

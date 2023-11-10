@@ -9,56 +9,42 @@
 @section('content')
     <div class="container mx-auto p-4">
         <div class="flex items-center justify-center mt-10">
-            <div class="max-w-[900px] bg-white shadow-lg rounded-lg overflow-hidden">
-                <div class="p-4">
-                    <h1 class="text-4xl font-bold mb-4 text-indigo-900 text-center">
-                        About Us
-                    </h1>
+
+            <div class="max-w-[900px] bg-info shadow-lg rounded-lg overflow-hidden">
+                <h1 class="text-4xl font-bold mb-4 text-indigo-900 text-center">
+                    About Us
+                </h1>
+                <div class="p-4 bg-info">
+                    <h1>Vision</h1>
                     <p class="text-center">
-                        Welcome to <strong>Mater Dei College</strong>, where excellence in education
-                        meets a nurturing environment. We are dedicated to
-                        providing students with a well-rounded education that
-                        empowers them to reach their full potential and become
-                        responsible global citizens.
+                        The Guidance Office of Mater Dei College is an office where a helping relationship exists between
+                        students, counsellor and stakeholders in order to sustain and enhance a harmonious relationship that
+                        develops positive social growth.
                     </p>
+
+                </div>
+                <div class="p-4 bg-info">
+                    <h1>Mission</h1>
                     <p class="text-center">
-                        Our mission is to inspire a lifelong love of learning
-                        and instill values that promote leadership, integrity,
-                        and community engagement. Here's what sets us apart:
+                        The Guidance Office develops students’ self-awareness thereby promoting understanding of self and
+                        others through counselling programs and other guidance service that promote positive students’
+                        growth.
                     </p>
-                    <ul class="list-none ml-6 mt-4">
-                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
-                            <strong>Experienced Educators:</strong> Our
-                            passionate and experienced teachers are committed to
-                            academic excellence and fostering personal growth.
-                        </li>
-                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
-                            <strong>Modern Facilities:</strong> We provide
-                            state-of-the-art facilities and resources to support
-                            innovative teaching and learning.
-                        </li>
-                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
-                            <strong>Comprehensive Curriculum:</strong> Our
-                            curriculum is designed to challenge and engage
-                            students, preparing them for success in an
-                            ever-changing world.
-                        </li>
-                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
-                            <strong>Extracurricular Activities:</strong> We
-                            offer a wide range of extracurricular activities to
-                            develop talents and interests outside the classroom.
-                        </li>
-                        <li class="border rounded p-4 my-2 shadow-lg bg-gray-200">
-                            <strong>Community Engagement:</strong> We encourage
-                            community involvement and service, fostering a sense
-                            of social responsibility.
-                        </li>
-                    </ul>
-                    <p class="text-center mt-4">
-                        At <strong>Mater Dei College</strong>, we believe that education is the key
-                        to a brighter future. Join us in shaping the leaders of
-                        tomorrow.
+
+                </div>
+                <div class="p-4 bg-info">
+                    <h1>Goals</h1>
+                    <p class="text-justify">
+                        The Guidance Services aims to: <br>
+                        1. Help students in formulating goals for self-direction; <br>
+                        2. Develop and harness their potentials for social interactions; <br>
+                        3. Assist them in developing their capacities and discovering their potentialities to achieve
+                        self-realization; <br>
+                        4. Formulate and identify their concept of self for better realization of their hopes and
+                        aspirations; and <br>
+                        5. Conduct activities that enable them to attain total human formation.
                     </p>
+
                 </div>
             </div>
         </div>

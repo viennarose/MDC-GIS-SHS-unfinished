@@ -16,7 +16,7 @@
 
 <body class="antialiased bg-black hold-transition sidebar-mini layout-fixed layout-navbar-fixed"
     style="
-            background-image: url('/images/bg1.png');
+            background-image: url('/images/background.jpg');
             background-repeat: no-repeat;
             background-size: 100%;
         ">
@@ -27,33 +27,6 @@
     </div>
     @yield('scripts')
 </body>
-
-<footer class="bg-black text-white py-4">
-    <div class="text-center">
-        <h1 style="font-family: Old English Five;">Mater Dei College</h1>
-        <h5>Cabulijan, Tubigon, Bohol</h5>
-    </div>
-    <div class="flex justify-between mx-20 mt-10">
-        <div class="text-center">
-            <a href="#" class="block bg-green-500 rounded-full w-12 h-12 mx-auto mb-2">
-                <i class="fas fa-phone-alt text-black text-2xl mt-3"></i>
-            </a>
-            <p class="hidden md:block text-xs">0945-756-2827</p>
-        </div>
-        <div class="text-center">
-            <a href="#" class="block bg-blue-500 rounded-full w-12 h-12 mx-auto mb-2">
-                <i class="fab fa-facebook-f text-black text-2xl mt-3"></i>
-            </a>
-            <p class="hidden md:block text-xs">mdc2023@facebook.com</p>
-        </div>
-        <div class="text-center">
-            <a href="#" class="block bg-green-500 rounded-full w-12 h-12 mx-auto mb-2">
-                <i class="fas fa-envelope text-white text-2xl mt-3"></i>
-            </a>
-            <p class="hidden md:block text-xs">mdc2023@gmail.com</p>
-        </div>
-    </div>
-</footer>
 
 </html>
 
