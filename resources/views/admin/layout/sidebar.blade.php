@@ -142,9 +142,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="/admin/transfer" class="nav-link {{ 'admin/transfer' == request()->path() ? 'active2' : '' }}">
                                         <i class="nav-icon far fa-circle"></i>
-                                        <p>Exit Questionnaire</p>
+                                        <p>Exit Questionnaire for Transfers</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -206,6 +206,7 @@
 
                 @yield('content')
                 @yield('scripts')
+                @yield('styles')
             </div>
         </div>
 

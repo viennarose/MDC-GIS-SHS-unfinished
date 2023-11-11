@@ -9,7 +9,7 @@
 @section('content')
     <div class="container mx-auto p-4">
         <div class="flex items-center justify-center mt-5">
-            <div class="max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden">
+            <div class="max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden overflow-y-auto h-100" style="height: 500px">
                 {{-- <div class="bg-cover bg-center h-64 p-4" style="background-image: url('/images/bg2.png')"></div> --}}
                 <div class="p-4">
                     <h1 class="text-4xl font-bold mb-4 text-indigo-900 text-center">

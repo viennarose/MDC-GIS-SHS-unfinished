@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('questionnaires', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('last_semester');
+            $table->string('course_year');
             $table->longText('reason');
+            $table->longText('other_reason');
             $table->longText('recommendations');
             $table->longText('transfer_school');
             $table->longText('transfer_school_address');
-            $table->longText('signature');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')

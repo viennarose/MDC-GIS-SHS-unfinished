@@ -19,6 +19,7 @@ use App\Http\Controllers\Normal_View\ChangePasswordController;
 use App\Http\Controllers\Normal_View\NormalActivityController;
 use App\Http\Controllers\Normal_View\SetAppointmentController;
 use App\Http\Controllers\Normal_View\NormalContactUsController;
+use App\Http\Controllers\Admin\Questionnaires\TransferController;
 use App\Http\Controllers\Normal_View\NormalAnnouncementController;
 use App\Http\Controllers\Admin\Questionnaires\CounselingController;
 use App\Http\Controllers\Admin\Questionnaires\ReadmissionController;
@@ -103,6 +104,18 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     ->name('admin.readmissions.pdf');
     Route::get('admin/readmissions/print/{id}', [ReadmissionController::class, 'printreadmission'])
     ->name('admin.readmissions.print');
+
+
+    Route::get('/admin/transfer', [TransferController::class, 'transfer']);
+    Route::get('/admin/transfers/create', [TransferController::class, 'transferCreate'])->name('transfers.create');
+    Route::post('/admin/transfers/create', [TransferController::class, 'transferstore']);
+    Route::get('/admin/transfer/{id}/update', [TransferController::class, 'transferEdit']);
+    Route::put('/admin/transfer/{id}/update', [TransferController::class, 'transferUpdate'])->name('admin.transfers.update');
+    Route::delete('/admin/transfer/{id}', [TransferController::class, 'destroy'])->name('transfers.destroy');
+    Route::get('admin/transfer/pdf/{id}', [TransferController::class, 'downloadPDF'])
+    ->name('admin.transfers.pdf');
+    Route::get('admin/transfer/print/{id}', [TransferController::class, 'printtransfer'])
+    ->name('admin.transfers.print');
 
     // Route::get('/admin/announcements', [AnnouncementController::class, 'announcement']);
     // Route::get('/admin/announcements', [AdminAnnouncementController::class, 'announcement']);

@@ -7,6 +7,7 @@ use App\Models\Activity;
 use App\Models\Feedback;
 use App\Models\Readmission;
 use App\Models\Announcement;
+use App\Models\Questionnaire;
 use App\Models\CounselingForm;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
@@ -74,5 +75,8 @@ class User extends Authenticatable
     }
     public function readmissions(){
         return $this->hasMany(Readmission::class);
+    }
+    public function transfers(){
+        return $this->hasMany(Questionnaire::class);
     }
 }
